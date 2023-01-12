@@ -5,7 +5,7 @@ class ProductInMemoryDb:
     def __init__(self,data:dict):
         self.data = data
         
-    def add(self,data:dict=None) -> int:
+    def append(self,data:dict=None) -> int:
         if data is None:
             data = self.data
         self.product_listdb.append(data)
