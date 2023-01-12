@@ -3,11 +3,11 @@ from product_inmemory_db import ProductInMemoryDb
 from product_injson_db import ProductInJsonDb
 
 
-class Product(): #inherits from dict or make it dataclass 
+class Product(): 
 
 
 
-     def __init__(self, title:str, short_description:str , description:str  , slug:str, permalink:str, sku:str, price:float, regular_price:float,
+    def __init__(self, title:str, short_description:str , description:str  , slug:str, permalink:str, sku:str, price:float, regular_price:float,
                  sale_price:float, manage_stock:bool, stock_quantity:int, date_created_gmt :int, date_modified_gmt:int,category_id:int = 0, 
                  is_visible = True, is_available:bool = False):
 
@@ -30,24 +30,21 @@ class Product(): #inherits from dict or make it dataclass
         self.date_created_gmt = date_created_gmt
         self.date_modified_gmt = date_modified_gmt
         self.memorydb = ProductInMemoryDb()
-        self.jsondb = ProductInJsonDb()  
+        self.jsondb = ProductInJsonDb()
         
 
 
     def create(self,id:int) -> str:
-        
+       memorydb.insert(self.data)
        ## self.id = id
        ## self.jsondb.insert(self.to_dict())
 
 
-        
-        
     def to_dict(self) -> dict:
-        dict = {'id':self.id,'category_id':self.category_id,'tittle':self.title,'short_description':self.short_description,
+        return {'id':self.id,'category_id':self.category_id,'tittle':self.title,'short_description':self.short_description,
         'description':self.description,'slug':self.slug,'permalink':self.permalink,'is_available':self.is_available,'sku':self.sku,
         'price':self.price,'regular_price':self.regular_price,'sale_price':self.sale_price,'manage_stock':self.manage_stock,'stock_quantity':self.stock_quantity,
         'is_visible':self.is_visible,'data_cretaed_modified':self.date_created_gmt,'data_modified_gmt':self.date_created_gmt}        
-        return dict
     
     
     

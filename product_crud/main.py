@@ -1,12 +1,7 @@
 import datetime
 from product import Product
-from circle import Circle
 
 def main():
-    print('Hello World')
-    
-
-    mycircle = Circle(8)
 
     currentdatetime = datetime.datetime.utcnow()
     current_unixtimestamp = int(currentdatetime.timestamp())
@@ -77,6 +72,4 @@ def main():
     #print(Product._product_list)
 
 if __name__ == '__main__':
-    # This code won't run if this file is imported.
     main()
-
